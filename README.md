@@ -1,8 +1,8 @@
-<H3>ENTER YOUR NAME</H3>
-<H3>ENTER YOUR REGISTER NO.</H3>
-<H3>EX. NO.1</H3>
-<H3>DATE</H3>
-<H1 ALIGN =CENTER> Introduction to Kaggle and Data preprocessing</H1>
+ ## NAME : jagadeesh Reddy
+## REGISTER NO : 212222240059
+## EX. NO.1
+## DATE : 03/03/2024
+## Introduction to Kaggle and Data preprocessing
 
 ## AIM:
 
@@ -29,19 +29,120 @@ Another aspect is that the data set should be formatted in such a way that more 
 
 
 ## ALGORITHM:
-STEP 1:Importing the libraries<BR>
-STEP 2:Importing the dataset<BR>
-STEP 3:Taking care of missing data<BR>
-STEP 4:Encoding categorical data<BR>
-STEP 5:Normalizing the data<BR>
-STEP 6:Splitting the data into test and train<BR>
+## STEP 1:
+Importing the libraries<BR>
+## STEP 2:
+Importing the dataset<BR>
+## STEP 3:
+Taking care of missing data<BR>
+## STEP 4:
+Encoding categorical data<BR>
+## STEP 5:
+Normalizing the data<BR>
+## STEP 6:
+Splitting the data into test and train<BR>
 
 ##  PROGRAM:
-TYPE YOUR CODE HERE
-
+## Import Libraries
+from google.colab import files
+import pandas as pd
+import seaborn as sns
+import io
+from sklearn.preprocessing import StandardScaler
+from sklearn.preprocessing import MinMaxScaler
+from sklearn.model_selection import train_test_split
+from scipy import stats
+import numpy as np
+## Read the dataset
+df=pd.read_csv("Churn_Modelling.csv")
+## Checking Data
+df.head()
+df.tail()
+df.columns
+## Check the missing data
+df.isnull().sum()
+## Check for Duplicates
+df.duplicated()
+## Assigning Y
+y = df.iloc[:, -1].values
+print(y)
+## Check for duplicates
+df.duplicated()
+## Check for outliers
+df.describe()
+## Dropping string values data from dataset
+data = df.drop(['Surname', 'Geography','Gender'], axis=1)
+## Checking datasets after dropping string values data from dataset
+data.head()
+## Normalize the dataset
+scaler=MinMaxScaler()
+df1=pd.DataFrame(scaler.fit_transform(data))
+print(df1)
+## Split the dataset
+X=df.iloc[:,:-1].values
+y=df.iloc[:,-1].values
+print(X)
+print(y)
+## Training and testing model
+X_train ,X_test ,y_train,y_test=train_test_split(X,y,test_size=0.2)
+print("X_train\n")
+print(X_train)
+print("\nLenght of X_train ",len(X_train))
+print("\nX_test\n")
+print(X_test)
+print("\nLenght of X_test ",len(X_test))
 
 ## OUTPUT:
-SHOW YOUR OUTPUT HERE
+## Data checking
+
+![exp - 1 1](https://github.com/jagadeeshreddy561/Ex-1-NN/assets/120623104/69b82b48-47d3-412c-b739-e10dd27fbc29)
+
+
+## Missing Data
+
+
+![exp-1 2](https://github.com/jagadeeshreddy561/Ex-1-NN/assets/120623104/cb042ea2-adb5-4476-abbc-93ba62d4cd56)
+
+
+## Duplicates identification
+
+![exp-1 3](https://github.com/jagadeeshreddy561/Ex-1-NN/assets/120623104/ab764e4f-57a8-439c-a5c9-cea69c1b7bd3)
+
+
+## Vakues of 'Y'
+
+
+![exp-1 4](https://github.com/jagadeeshreddy561/Ex-1-NN/assets/120623104/ebb950a9-2a02-44d5-bace-2c64e2b7147f)
+
+
+## Outliers
+
+
+![exp-1 5](https://github.com/jagadeeshreddy561/Ex-1-NN/assets/120623104/c3421fdd-3062-40b1-96e4-b052e181b0e4)
+
+
+## Checking datasets after dropping string values data from dataset
+
+
+![exp-1 6](https://github.com/jagadeeshreddy561/Ex-1-NN/assets/120623104/7cdb00a0-efdc-454d-b0dd-92e131a180c2)
+
+
+## Normalize the dataset
+
+
+![exp-1 7](https://github.com/jagadeeshreddy561/Ex-1-NN/assets/120623104/9aa31804-38ca-44ba-a38f-77f2936e197b)
+
+
+## Split the dataset
+
+
+![exp-1 8](https://github.com/jagadeeshreddy561/Ex-1-NN/assets/120623104/886c69d3-8ca2-42ed-a675-583a2b49e0ff)
+
+## Training and testing model
+
+
+![exp-1 9](https://github.com/jagadeeshreddy561/Ex-1-NN/assets/120623104/b41f5931-dd79-415c-a181-b8438e188bb6)
+
 
 
 ## RESULT:
